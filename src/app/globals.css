@@ -1,0 +1,17 @@
+:root {
+  --bg1: #1e1e1e;
+  --bg2: #252526;
+  --bg3: #3e3e42;
+  --action1: #007acc;
+
+  --text1: #eeeeeedc;
+  --text2: #d0d0d0b5;
+  --text3: #bfbfbf92;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg1);
+  color: var(--text1);
+}
