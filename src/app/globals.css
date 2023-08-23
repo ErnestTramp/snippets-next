@@ -2,11 +2,14 @@
   --bg1: #1e1e1e;
   --bg2: #252526;
   --bg3: #3e3e42;
-  --action1: #007acc;
 
   --text1: #eeeeeedc;
   --text2: #d0d0d0b5;
   --text3: #bfbfbf92;
+
+  --blue1: #007FFF;
+  --blue2: #0072E5;
+  --blue3: #0059B2;
 }
 
 body {
@@ -14,4 +17,82 @@ body {
   padding: 0;
   background: var(--bg1);
   color: var(--text1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+  width: 100%;
+}
+
+header h1 {
+  padding: 2vh 2vh;
+  font-size: 5vh;
+}
+
+.MuiButton {
+  width: 17vh;
+  height: 5vh;
+  color: var(--text1);
+  background-color: var(--blue1);
+  border: none;
+  transition: all 150ms ease;
+  font-weight: 600;
+  font-size: 2vh;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.MuiButton:hover {
+  background-color: var(--blue2);
+  outline: none;
+
+}
+
+.MuiButton:active {
+  background-color: var(--blue3);
+  outline: none;
+}
+
+main {
+  width: 97%;
+  height: 80vh;
+}
+
+.snippets-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.snippet {
+  width: 60vh;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  background-color: var(--bg3);
+}
+
+.snippet-header {}
+
+.snippet-header p {
+  margin: 1vh 1vh 0vh 1.3vh;
+  padding: 1vh;
+  max-width: 15vh;
+  border-radius: 10px 10px 0px 0px;
+  background-color: var(--bg2);
+}
+
+.snippet-code {
+  margin: 0vh 1vh 1vh 1.3vh;
+  width: 95.5%;
+  height: 100%;
+  background-color: var(--bg2);
+  border-radius: 0px 10px 10px 10px;
+}
+
+.code {}
