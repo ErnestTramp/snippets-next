@@ -1,8 +1,10 @@
-export default function Header() {
+import Link from 'next/link';
+
+export default function Header({page, nav}) {
     return (
         <header>
             <h1>Snippets Next</h1>
-            <button className="MuiButton">New</button>
+            <Link href={"/" + nav} className="MuiButton">{page}</Link>
         </header>
     )
 }

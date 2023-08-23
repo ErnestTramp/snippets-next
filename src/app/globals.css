@@ -45,6 +45,10 @@ header h1 {
   font-size: 2vh;
   cursor: pointer;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .MuiButton:hover {
@@ -60,16 +64,21 @@ header h1 {
 
 main {
   width: 97%;
-  height: 80vh;
+  min-height: 80vh;
 }
 
 .snippets-wrapper {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  display: flex;
+  gap: 1vh;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .snippet {
-  width: 60vh;
+  min-width: 64vh;
+  max-width: 64vh;
   height: 40vh;
   display: flex;
   flex-direction: column;
@@ -77,22 +86,121 @@ main {
   background-color: var(--bg3);
 }
 
-.snippet-header {}
-
 .snippet-header p {
   margin: 1vh 1vh 0vh 1.3vh;
   padding: 1vh;
   max-width: 15vh;
   border-radius: 10px 10px 0px 0px;
-  background-color: var(--bg2);
+  background-color: rgb(43, 43, 43);
 }
 
 .snippet-code {
   margin: 0vh 1vh 1vh 1.3vh;
   width: 95.5%;
-  height: 100%;
-  background-color: var(--bg2);
+  max-height: 100%;
+  overflow-y: scroll;
+  background-color: rgb(43, 43, 43);
   border-radius: 0px 10px 10px 10px;
 }
 
-.code {}
+.snippet-code::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3498db, #2980b9);
+  border-radius: 0px 10px 10px 0px;
+}
+
+.snippet-code::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.snippet-code::-webkit-scrollbar-button {
+  display: none;
+}
+
+.snippet-code::-webkit-scrollbar-corner {
+  background: #333;
+}
+
+.snippet-code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+form {
+  width: 120vh;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  background-color: var(--bg3);
+}
+
+.language {
+  margin: 1vh 1vh 0vh 1.3vh;
+  padding: 1vh;
+  max-width: 15vh;
+  border-radius: 10px 10px 0px 0px;
+  background-color: rgb(43, 43, 43);
+}
+
+.new-code {
+  margin: 0vh 1vh 1vh 1.3vh;
+  width: 95.5%;
+  height: 85%;
+  overflow-y: scroll;
+  background-color: rgb(43, 43, 43);
+  border-radius: 0px 10px 10px 10px;
+  color: var(--text2);
+  resize: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: none;
+}
+
+.new-code:focus {
+  outline: none;
+}
+
+.new-code::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3498db, #2980b9);
+  border-radius: 0px 10px 10px 0px;
+}
+
+.new-code::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.new-code::-webkit-scrollbar-button {
+  display: none;
+}
+
+.new-code::-webkit-scrollbar-corner {
+  background: #333;
+}
+
+.new-code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.form-button {
+  background-color: var(--blue1);
+  color: var(--text1);
+  font-size: 2vh;
+  padding: 1vh;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 30%;
+  margin-bottom: 1vh;
+  margin-left: 1vh;
+}
+
+.form-button:hover {
+  background-color: var(--blue2);
+}
+
+.form-button:active {
+  background-color: var(--blue3);
+}

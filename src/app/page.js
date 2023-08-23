@@ -1,3 +1,4 @@
+import CodeBlock from "./components/CodeBlock";
 import Header from "./components/Header";
 import { db } from "@/database";
 
@@ -25,7 +26,7 @@ export default async function Home() {
 
     return (
       <>
-        <Header />
+        <Header page="New" nav="new" />
         <main>
           <div className="snippets-wrapper">
             {snippets.map((snippet) => (
@@ -33,7 +34,12 @@ export default async function Home() {
                 <div className="snippet-header">
                   <p>{snippet.language}</p>
                 </div>
-                <div className="snippet-code">{snippet.code}</div>
+                <div className="snippet-code">
+                  <CodeBlock
+                    language={snippet.language}
+                    code={snippet.code}
+                  ></CodeBlock>
+                </div>
               </div>
             ))}
           </div>
