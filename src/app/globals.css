@@ -145,6 +145,7 @@ form {
 
 .new-code {
   margin: 0vh 1vh 1vh 1.3vh;
+  padding: 1vh;
   width: 95.5%;
   height: 85%;
   overflow-y: scroll;
