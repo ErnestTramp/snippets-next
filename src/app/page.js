@@ -33,9 +33,7 @@ export default async function Home() {
                 <div className="snippet-header">
                   <p>{snippet.language}</p>
                 </div>
-                <div className="snippet-code">
-                  <div className="code">{snippet.code}</div>
-                </div>
+                <div className="snippet-code">{snippet.code}</div>
               </div>
             ))}
           </div>
@@ -44,6 +42,5 @@ export default async function Home() {
     );
   } catch (error) {
     console.error("Error:", error);
-    // Handle the error gracefully in your UI
   }
 }
