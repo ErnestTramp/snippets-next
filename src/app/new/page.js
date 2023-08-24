@@ -8,7 +8,6 @@ export default function Page() {
       <main>
         <form>
           <NewCodeBlock />
-          <button className="form-button">Send</button>
         </form>
       </main>
     </>

@@ -1,11 +1,11 @@
+import SaveCodeBlock from "../SaveCodeBlock/SaveCodeBlock";
 "use client";
-import SaveSnippet from "./SaveCodeBlock";
 import hljs from "highlight.js";
 import React, { useEffect, useState } from "react";
 
 export default function NewCodeBlock() {
   var [detectedLanguage, setDetectedLanguage] = useState(null);
-  var [codeValue, setCodeValue] = useState(""); // State to manage code value
+  var [codeValue, setCodeValue] = useState("");
 
   useEffect(() => {
     hljs.highlightAll();
@@ -15,11 +15,32 @@ export default function NewCodeBlock() {
     var code = event.target.value;
     var language = hljs.highlightAuto(code).language;
     setDetectedLanguage(language);
+    setCodeValue(code);
   };
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    saveSnippet(detectedLanguage, codeValue);
+  const handleAddSnippet = () => {
+    if (!codeValue || !detectedLanguage) {
+      // Ensure both code and detectedLanguage are set before sending the request.
+      return;
+    }
+  
+    fetch('/SaveCodeBlock', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ code: codeValue, language: detectedLanguage }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Snippet added:', data);
+        
+        setCodeValue('');
+        setDetectedLanguage(null);
+      })
+      .catch((error) => {
+        console.error('Error adding snippet:', error);
+      });
   };
 
   const placeholders = "language";
@@ -29,16 +50,14 @@ export default function NewCodeBlock() {
       <p className="language">
         {detectedLanguage === undefined ? placeholders : detectedLanguage}
       </p>
-      <form onSubmit={handleFormSubmit}>
         <textarea
           className="new-code"
           onChange={handleCodeChange}
           placeholder="Enter some code..."
         ></textarea>
-        <button className="form-button" type="submit">
+        <button className="form-button" onClick={handleAddSnippet}>
           Send
         </button>
-      </form>
     </>
   );
 }
